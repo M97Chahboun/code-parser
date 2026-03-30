@@ -1,15 +1,16 @@
 # code-parser Claude Code Commands
 
-Six slash commands that integrate `code-parser` into Claude Code for surgical,
-token-efficient codebase navigation.
+Seven slash commands that integrate `code-parser` into Claude Code for surgical,
+token-efficient codebase navigation and documentation extraction.
 
 ## Commands
 
 | Command | Arguments | Purpose |
 |---|---|---|
-| `/index` | `[path]` | Index a file or directory — shows all classes, methods, and line ranges |
+| `/index` | `[path]` | Index a file or directory — shows all classes, methods, docs, and line ranges |
 | `/parse-find` | `<name> [path]` | Locate a class or method — returns file and exact line range |
 | `/parse-read` | `<file> <start> <end>` | Read specific lines from a file using the index |
+| `/parse-docs` | `[path] [Class] [Method]` | Extract documentation comments (docstrings, JSDoc, Dart docs) |
 | `/parse-edit` | `<file> <Class.method> <instruction>` | Surgical edit — indexes first, reads only relevant lines |
 | `/parse-audit` | `[path]` | Full architecture report — class sizes, god classes, structural overview |
 | `/parse-stats` | `[path]` | Token saving summary for the session |

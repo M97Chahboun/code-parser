@@ -2,7 +2,7 @@
 
 > **LLM-optimised code structure extractor** — Dart · Python · TypeScript · Rust · v0.1.0
 
-A fast Rust CLI that statically analyses source files and returns a structured JSON map of every **class, interface, mixin, enum, and method** — together with its **exact line range** — without executing the code.
+A fast Rust CLI that statically analyses source files and returns a structured JSON map of every **class, interface, mixin, enum, and method** — together with its **exact line range** and **documentation comments** — without executing the code.
 
 ---
 
@@ -50,11 +50,11 @@ The intended workflow is a **two-phase read pattern**:
 
 | Language | Extension | Parser backend | Detects |
 |---|---|---|---|
-| **Dart** | `.dart` | Hand-rolled tokeniser | `class`, `abstract class`, `mixin`, `extension`, `enum` |
-| **Python** | `.py` | tree-sitter-python 0.21 | `class` (all method types incl. `@decorator`) |
-| **TypeScript** | `.ts`, `.tsx` | tree-sitter-typescript 0.21 | `class`, `abstract class`, `interface`, `enum` |
+| **Dart** | `.dart` | Hand-rolled tokeniser | `class`, `abstract class`, `mixin`, `extension`, `enum` + `///` and `/** */` doc comments |
+| **Python** | `.py` | tree-sitter-python 0.21 | `class` (all method types incl. `@decorator`) + docstrings |
+| **TypeScript** | `.ts`, `.tsx` | tree-sitter-typescript 0.21 | `class`, `abstract class`, `interface`, `enum` + JSDoc comments |
 
-For each type the tool extracts: `name`, `kind`, `line_start`, `line_end`, and an array of `methods` — each with their own line range.
+For each type the tool extracts: `name`, `kind`, `line_start`, `line_end`, `doc` (documentation), and an array of `methods` — each with their own line range and optional documentation.
 
 ---
 
@@ -132,11 +132,12 @@ The tool always emits a JSON array — one element per parsed file.
         "kind": "class",
         "line_start": 8,
         "line_end": 47,
+        "doc": "Handles all user-related operations including\nfetching, updating, and deleting users.",
         "methods": [
-          { "name": "UserService",   "line_start": 12, "line_end": 12 },
-          { "name": "fetchUser",     "line_start": 15, "line_end": 22 },
+          { "name": "UserService", "line_start": 12, "line_end": 12, "doc": "Creates a new UserService instance." },
+          { "name": "fetchUser", "line_start": 15, "line_end": 22, "doc": "Fetches a user by ID from the remote API." },
           { "name": "get displayName", "line_start": 24, "line_end": 24 },
-          { "name": "deleteUser",    "line_start": 26, "line_end": 33 }
+          { "name": "deleteUser", "line_start": 26, "line_end": 33, "doc": "Permanently deletes a user account." }
         ]
       }
     ]
@@ -155,6 +156,7 @@ The tool always emits a JSON array — one element per parsed file.
 | `kind` | string | `class`, `abstract class`, `interface`, `mixin`, `extension`, `enum` |
 | `line_start` | number (1-based) | First line of the type declaration |
 | `line_end` | number (1-based) | Last line of the closing brace |
+| `doc` | string (optional) | Documentation comment (docstring, JSDoc, or Dart doc comment) |
 | `methods` | array | All methods / constructors / getters / setters |
 
 ---
