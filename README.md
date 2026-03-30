@@ -60,12 +60,24 @@ For each type the tool extracts: `name`, `kind`, `line_start`, `line_end`, and a
 
 ## Installation
 
-### Requirements
+### Install with Cargo
+
+```bash
+cargo install code-parser
+```
+
+### Install with curl
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/your-org/code-parser/main/install.sh | bash
+```
+
+### Build from source
+
+**Requirements:**
 
 - Rust 1.75+ (1.77+ recommended)
 - Cargo (bundled with Rust via rustup)
-
-### Build from source
 
 ```bash
 git clone https://github.com/your-org/code-parser
