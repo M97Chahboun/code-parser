@@ -3,7 +3,7 @@
 # code-parser installation script
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/master/install.sh | bash
 #
 # Options (via environment variables or flags):
 #   VERSION     - Specific version to install (default: latest)
@@ -20,7 +20,7 @@
 set -euo pipefail
 
 # --- Configuration ---
-REPO="your-org/code-parser"  # TODO: Update with actual GitHub repo
+REPO="m97chahboun/code-parser"  # TODO: Update with actual GitHub repo
 BINARY_NAME="code-parser"
 COMMANDS_DIR="code-parser-commands"
 
@@ -270,7 +270,7 @@ install_commands() {
         done
     else
         # Download from repo
-        local commands_url="https://raw.githubusercontent.com/${REPO}/main/${COMMANDS_DIR}"
+        local commands_url="https://raw.githubusercontent.com/${REPO}/master/${COMMANDS_DIR}"
         local files=("index.md" "parse-find.md" "parse-read.md" "parse-edit.md" "parse-audit.md" "parse-stats.md")
 
         for file in "${files[@]}"; do

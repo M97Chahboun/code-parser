@@ -69,7 +69,7 @@ cargo install code-parser
 ### Install with curl
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/master/install.sh | bash
 ```
 
 ### Build from source

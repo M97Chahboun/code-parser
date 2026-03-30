@@ -34,7 +34,7 @@ If you haven't built the binary yet:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/code-parser
+git clone https://github.com/m97chahboun/code-parser
 cd code-parser
 
 # Build release binary
