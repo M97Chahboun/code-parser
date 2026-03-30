@@ -69,7 +69,7 @@ cargo install code-parser
 ### Install with curl
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/your-org/code-parser/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/main/install.sh | bash
 ```
 
 ### Build from source
@@ -80,7 +80,7 @@ curl -fsSL https://raw.githubusercontent.com/your-org/code-parser/main/install.s
 - Cargo (bundled with Rust via rustup)
 
 ```bash
-git clone https://github.com/your-org/code-parser
+git clone https://github.com/m97chahboun/code-parser
 cd code-parser
 cargo build --release
 # binary at: ./target/release/code-parser

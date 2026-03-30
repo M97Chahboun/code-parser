@@ -3,7 +3,7 @@
 # code-parser installation script
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/your-org/code-parser/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/m97chahboun/code-parser/main/install.sh | bash
 #
 # Options (via environment variables or flags):
 #   VERSION     - Specific version to install (default: latest)
