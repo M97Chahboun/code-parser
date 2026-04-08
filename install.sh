@@ -160,7 +160,7 @@ download_binary() {
     local platform="$2"
     local temp_dir="$3"
 
-    local filename="${BINARY_NAME}-${version}-${platform}.tar.gz"
+    local filename="${BINARY_NAME}-${platform}.tar.gz"
     local url="https://github.com/${REPO}/releases/download/${version}/${filename}"
 
     log_info "Downloading ${filename}..."
