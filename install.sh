@@ -160,7 +160,9 @@ download_binary() {
     local platform="$2"
     local temp_dir="$3"
 
-    local filename="${BINARY_NAME}-${platform}.tar.gz"
+    # Extract OS name only (without architecture)
+    local os_name="${platform%%-*}"
+    local filename="${BINARY_NAME}-${os_name}.tar.gz"
     local url="https://github.com/${REPO}/releases/download/${version}/${filename}"
 
     log_info "Downloading ${filename}..."
